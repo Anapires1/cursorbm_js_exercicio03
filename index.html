@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles/styles.css" />
+		<title>Aula 03</title>
+	</head>
+	<body>
+		<!-- <div class="filter-wrapper">
+			<div class="container">
+				<div class="stars"></div>
+				<div class="stars2"></div>
+				<div class="stars3"></div>
+				<div class="stars4"></div>
+				<div class="stars5"></div>
+				<h2>Star Store</h2>
+			</div>
+			<input placeholder="pesquisar" id="input-pesquisar" />
+			<select id="filter-type-select" value="marca">
+				<option value="marca">marca</option>
+				<option value="modelo">modelo</option>
+			</select>
+			<button id="search-button">buscar</button>
+		</div> -->
+		<div class="header">
+			<div class="efeito" id="estrelinha-container"></div>
+		</div>
+		<div class="menu" id="menu">
+			<h2 class="title-modelo">Selecione o filtro desejado:</h2>
+			<ul>
+				<h3 class="title-modelo">Categorias:</h3>
+				<div id="modelo">
+					<li>
+						<input name="modelo" type="radio" value="Blusa" />
+						<label id="blusa">Blusa</label>
+					</li>
+					<li>
+						<input name="modelo" type="radio" value="Vestido" />
+						<label id="vestido">Vestido</label>
+					</li>
+					<li>
+						<input name="modelo" type="radio" value="Short" />
+						<label id="short">Short</label>
+					</li>
+					<li>
+						<input name="modelo" type="radio" value="Moletom" />
+						<label id="casaco">Moletom</label>
+					</li>
+					<li>
+						<input name="modelo" type="radio" value="Mochila" />
+						<label>Mochila</label>
+					</li>
+				</div>
+			</ul>
+			<ul>
+				<h3 class="title-modelo">Marcas:</h3>
+				<li>
+					<input name="marca" type="radio" value="Adidas" />
+					<label>Adidas</label>
+				</li>
+				<li>
+					<input name="marca" type="radio" value="Farm" />
+					<label>Farm</label>
+				</li>
+				<li>
+					<input name="marca" type="radio" value="Nike" />
+					<label>Nike</label>
+				</li>
+				<li>
+					<input name="marca" type="radio" value="Puma" />
+					<label>Puma</label>
+				</li>
+			</ul>
+			<ul>
+				<h3 class="title-modelo">Tamanhos:</h3>
+				<li>
+					<input name="tamanho" type="radio" value="PP" />
+					<label>PP</label>
+				</li>
+				<li>
+					<input name="tamanho" type="radio" value="P" />
+					<label>P</label>
+				</li>
+				<li>
+					<input name="tamanho" type="radio" value="M" />
+					<label>M</label>
+				</li>
+				<li>
+					<input name="tamanho" type="radio" value="G" />
+					<label>G</label>
+				</li>
+				<li>
+					<input name="tamanho" type="radio" value="GG" />
+					<label>GG</label>
+				</li>
+			</ul>
+			<ul>
+				<h3 class="title-modelo">Preços:</h3>
+				<li>
+					<input name="tipoPreco" type="radio" name="oi" value="preco1" />
+					<label>R$ 55,00 - R$150,00</label>
+				</li>
+				<li>
+					<input name="tipoPreco" type="radio" value="preco2" />
+					<label>R$ 151,00 - R$250,00</label>
+				</li>
+				<li>
+					<input name="tipoPreco" type="radio" value="preco3" />
+					<label>R$ 251,00 - R$350,00</label>
+				</li>
+				<li>
+					<input name="tipoPreco" type="radio" value="preco4" />
+					<label>R$ 351,00 - R$450,00</label>
+				</li>
+				<li>
+					<input name="tipoPreco" type="radio" value="preco5" />
+					<label>R$ 451,00 - R$550,00</label>
+				</li>
+			</ul>
+			<!-- <button id="search-button">buscar</button> -->
+		</div>
+		<div id="root"></div>
+		<script src="./scripts/index.js" type="module"></script>
+	</body>
+</html>
