@@ -68,7 +68,5 @@ function renderizarEstrelas(quant) {
     }
 }
 renderizarEstrelas(250);
-const homeButtonElement = document.getElementById("button-voltar-home");
-homeButtonElement === null || homeButtonElement === void 0 ? void 0 : homeButtonElement.addEventListener("click", () => renderizarEstrelas(250));
 const previaButtonElement = document.getElementById("button-home");
 previaButtonElement === null || previaButtonElement === void 0 ? void 0 : previaButtonElement.addEventListener("click", () => renderizaPreviaColecao(roupasPrevia, 250));

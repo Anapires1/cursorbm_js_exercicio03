@@ -8,7 +8,7 @@ const roupas = [
         preco: 251.2,
         tipoPreco: "preco3",
         img: "../images/blusa.png",
-        tam: ["P", "M"],
+        tamanho: ["P", "M"],
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const roupas = [
         preco: 548.9,
         tipoPreco: "preco5",
         img: "../images/camisa_wonder.png",
-        tam: ["P", "M"],
+        tamanho: ["P", "M"],
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ const roupas = [
         preco: 540.8,
         tipoPreco: "preco5",
         img: "../images/camisa_adidas.png",
-        tam: ["M", "G"],
+        tamanho: ["M", "G"],
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const roupas = [
         preco: 549.99,
         tipoPreco: "preco5",
         img: "../images/cropped_estrela.png",
-        tam: ["PP", "M"],
+        tamanho: ["PP", "M"],
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ const roupas = [
         preco: 259.6,
         tipoPreco: "preco3",
         img: "../images/moletom_fem.png",
-        tam: ["M", "G"],
+        tamanho: ["M", "G"],
     },
     {
         id: 6,
@@ -58,7 +58,7 @@ const roupas = [
         preco: 300.0,
         tipoPreco: "preco3",
         img: "../images/moletom_mas.png",
-        tam: ["G", "GG"],
+        tamanho: ["G", "GG"],
     },
     {
         id: 7,
@@ -68,7 +68,7 @@ const roupas = [
         preco: 453.5,
         tipoPreco: "preco5",
         img: "../images/vestido.png",
-        tam: ["PP", "P"],
+        tamanho: ["PP", "P"],
     },
     {
         id: 8,
@@ -78,7 +78,7 @@ const roupas = [
         preco: 58.5,
         tipoPreco: "preco1",
         img: "../images/blusa_academia.png",
-        tam: ["P", "M", "G"],
+        tamanho: ["P", "M", "G"],
     },
     {
         id: 9,
@@ -88,7 +88,7 @@ const roupas = [
         preco: 550.0,
         tipoPreco: "preco5",
         img: "../images/vestido_floral.png",
-        tam: ["PP", "P"],
+        tamanho: ["PP", "P"],
     },
     {
         id: 10,
@@ -98,7 +98,7 @@ const roupas = [
         preco: 110.99,
         tipoPreco: "preco1",
         img: "../images/short_fem.png",
-        tam: ["M", "G"],
+        tamanho: ["M", "G"],
     },
     {
         id: 11,
@@ -117,7 +117,7 @@ const roupas = [
         preco: 120.0,
         tipoPreco: "preco1",
         img: "../images/short_masc.png",
-        tam: ["M", "GG"],
+        tamanho: ["M", "GG"],
     },
     {
         id: 13,
@@ -127,7 +127,7 @@ const roupas = [
         preco: 249.4,
         tipoPreco: "preco2",
         img: "../images/cropped.png",
-        tam: ["PP", "P"],
+        tamanho: ["PP", "P"],
     },
     {
         id: 14,
@@ -155,7 +155,7 @@ const roupas = [
         preco: 360.0,
         tipoPreco: "preco4",
         img: "../images/camisa_comprida.png",
-        tam: ["P", "M", "G"],
+        tamanho: ["P", "M", "G"],
     },
 ];
 const rootElement = document.querySelector("#root");
@@ -184,24 +184,24 @@ const radiosElementPreco = Array.from(document.querySelectorAll("input[name=tipo
 const radiosElementMarca = Array.from(document.querySelectorAll("input[name=marca]"));
 function search(categoria, value) {
     if (categoria === "tamanho") {
-        let arrayBlusasFiltradoTamanho = [];
+        let arrayRoupasFiltradoTamanho = [];
         roupas.map((item, index) => {
             var _a;
-            (_a = item.tam) === null || _a === void 0 ? void 0 : _a.filter((tam) => {
-                if (tam === value) {
-                    return (arrayBlusasFiltradoTamanho = [
-                        ...arrayBlusasFiltradoTamanho,
+            (_a = item.tamanho) === null || _a === void 0 ? void 0 : _a.filter((tamanho) => {
+                if (tamanho === value) {
+                    return (arrayRoupasFiltradoTamanho = [
+                        ...arrayRoupasFiltradoTamanho,
                         roupas[index],
                     ]);
                 }
                 return false;
             });
         });
-        render(arrayBlusasFiltradoTamanho);
+        render(arrayRoupasFiltradoTamanho);
     }
     else {
-        const newBlusas = roupas.filter((blusa) => blusa[categoria].includes(value));
-        render(newBlusas);
+        const newRoupas = roupas.filter((blusa) => blusa[categoria].includes(value));
+        render(newRoupas);
     }
 }
 radiosElementModelo.forEach((element) => {

@@ -81,8 +81,6 @@ function renderizarEstrelas(quant: number) {
 }
 
 renderizarEstrelas(250);
-const homeButtonElement = document.getElementById("button-voltar-home");
-homeButtonElement?.addEventListener("click", () => renderizarEstrelas(250));
 const previaButtonElement = document.getElementById("button-home");
 previaButtonElement?.addEventListener("click", () =>
 	renderizaPreviaColecao(roupasPrevia, 250)

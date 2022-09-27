@@ -6,7 +6,7 @@ type Roupa = {
 	preco: number;
 	tipoPreco: string;
 	img: string;
-	tam?: string[];
+	tamanho?: string[];
 };
 const roupas = [
 	{
@@ -17,7 +17,7 @@ const roupas = [
 		preco: 251.2,
 		tipoPreco: "preco3",
 		img: "../images/blusa.png",
-		tam: ["P", "M"],
+		tamanho: ["P", "M"],
 	},
 	{
 		id: 2,
@@ -27,7 +27,7 @@ const roupas = [
 		preco: 548.9,
 		tipoPreco: "preco5",
 		img: "../images/camisa_wonder.png",
-		tam: ["P", "M"],
+		tamanho: ["P", "M"],
 	},
 	{
 		id: 3,
@@ -37,7 +37,7 @@ const roupas = [
 		preco: 540.8,
 		tipoPreco: "preco5",
 		img: "../images/camisa_adidas.png",
-		tam: ["M", "G"],
+		tamanho: ["M", "G"],
 	},
 	{
 		id: 4,
@@ -47,7 +47,7 @@ const roupas = [
 		preco: 549.99,
 		tipoPreco: "preco5",
 		img: "../images/cropped_estrela.png",
-		tam: ["PP", "M"],
+		tamanho: ["PP", "M"],
 	},
 	{
 		id: 5,
@@ -57,7 +57,7 @@ const roupas = [
 		preco: 259.6,
 		tipoPreco: "preco3",
 		img: "../images/moletom_fem.png",
-		tam: ["M", "G"],
+		tamanho: ["M", "G"],
 	},
 	{
 		id: 6,
@@ -67,7 +67,7 @@ const roupas = [
 		preco: 300.0,
 		tipoPreco: "preco3",
 		img: "../images/moletom_mas.png",
-		tam: ["G", "GG"],
+		tamanho: ["G", "GG"],
 	},
 
 	{
@@ -78,7 +78,7 @@ const roupas = [
 		preco: 453.5,
 		tipoPreco: "preco5",
 		img: "../images/vestido.png",
-		tam: ["PP", "P"],
+		tamanho: ["PP", "P"],
 	},
 
 	{
@@ -89,7 +89,7 @@ const roupas = [
 		preco: 58.5,
 		tipoPreco: "preco1",
 		img: "../images/blusa_academia.png",
-		tam: ["P", "M", "G"],
+		tamanho: ["P", "M", "G"],
 	},
 	{
 		id: 9,
@@ -99,7 +99,7 @@ const roupas = [
 		preco: 550.0,
 		tipoPreco: "preco5",
 		img: "../images/vestido_floral.png",
-		tam: ["PP", "P"],
+		tamanho: ["PP", "P"],
 	},
 	{
 		id: 10,
@@ -109,7 +109,7 @@ const roupas = [
 		preco: 110.99,
 		tipoPreco: "preco1",
 		img: "../images/short_fem.png",
-		tam: ["M", "G"],
+		tamanho: ["M", "G"],
 	},
 	{
 		id: 11,
@@ -129,7 +129,7 @@ const roupas = [
 		preco: 120.0,
 		tipoPreco: "preco1",
 		img: "../images/short_masc.png",
-		tam: ["M", "GG"],
+		tamanho: ["M", "GG"],
 	},
 	{
 		id: 13,
@@ -139,7 +139,7 @@ const roupas = [
 		preco: 249.4,
 		tipoPreco: "preco2",
 		img: "../images/cropped.png",
-		tam: ["PP", "P"],
+		tamanho: ["PP", "P"],
 	},
 	{
 		id: 14,
@@ -167,7 +167,7 @@ const roupas = [
 		preco: 360.0,
 		tipoPreco: "preco4",
 		img: "../images/camisa_comprida.png",
-		tam: ["P", "M", "G"],
+		tamanho: ["P", "M", "G"],
 	},
 ];
 
@@ -207,26 +207,26 @@ const radiosElementMarca: HTMLInputElement[] = Array.from(
 	document.querySelectorAll("input[name=marca]")
 );
 
-function search(categoria: string, value: string) {
+function search(categoria: keyof Omit<Roupa, "id" | "preco">, value: string) {
 	if (categoria === "tamanho") {
-		let arrayBlusasFiltradoTamanho: Roupa[] = [];
+		let arrayRoupasFiltradoTamanho: Roupa[] = [];
 		roupas.map((item, index) => {
-			item.tam?.filter((tam) => {
-				if (tam === value) {
-					return (arrayBlusasFiltradoTamanho = [
-						...arrayBlusasFiltradoTamanho,
+			item.tamanho?.filter((tamanho) => {
+				if (tamanho === value) {
+					return (arrayRoupasFiltradoTamanho = [
+						...arrayRoupasFiltradoTamanho,
 						roupas[index],
 					]);
 				}
 				return false;
 			});
 		});
-		render(arrayBlusasFiltradoTamanho);
+		render(arrayRoupasFiltradoTamanho);
 	} else {
-		const newBlusas = roupas.filter((blusa) =>
+		const newRoupas = roupas.filter((blusa) =>
 			blusa[categoria].includes(value)
 		);
-		render(newBlusas);
+		render(newRoupas);
 	}
 }
 
@@ -234,7 +234,7 @@ radiosElementModelo.forEach((element) => {
 	element.addEventListener("change", ({ target }) => {
 		if ((target as HTMLInputElement).checked) {
 			search(
-				(target as HTMLInputElement).name,
+				(target as HTMLInputElement).name as keyof Omit<Roupa, "id" | "preco">,
 				(target as HTMLInputElement).value
 			);
 		}
@@ -245,7 +245,7 @@ radiosElementTamanho.forEach((element) => {
 	element.addEventListener("change", ({ target }) => {
 		if ((target as HTMLInputElement).checked) {
 			search(
-				(target as HTMLInputElement).name,
+				(target as HTMLInputElement).name as keyof Omit<Roupa, "id" | "preco">,
 				(target as HTMLInputElement).value
 			);
 		}
@@ -255,7 +255,7 @@ radiosElementPreco.forEach((element) => {
 	element.addEventListener("change", ({ target }) => {
 		if ((target as HTMLInputElement).checked) {
 			search(
-				(target as HTMLInputElement).name,
+				(target as HTMLInputElement).name as keyof Omit<Roupa, "id" | "preco">,
 				(target as HTMLInputElement).value
 			);
 		}
@@ -265,7 +265,7 @@ radiosElementMarca.forEach((element) => {
 	element.addEventListener("change", ({ target }) => {
 		if ((target as HTMLInputElement).checked) {
 			search(
-				(target as HTMLInputElement).name,
+				(target as HTMLInputElement).name as keyof Omit<Roupa, "id" | "preco">,
 				(target as HTMLInputElement).value
 			);
 		}
