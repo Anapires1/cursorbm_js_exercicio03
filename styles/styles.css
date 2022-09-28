@@ -245,4 +245,5 @@ a {
 	padding: 20px 10px 10px 10px;
 	background-color: #ffffff;
 	margin-left: 40px;
+	z-index: 1;
 }
